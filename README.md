@@ -93,7 +93,7 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
-##Contributors:
+## Contributors:
  [PRASANNA-THE-PRASANN1](https://github.com/PRASANNA-THE-PRASANN1)
  [Yathipachauri](https://github.com/Yathipachauri)
 
