@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 import { getUserData } from '../services/localStorageService';
@@ -18,7 +17,7 @@ const NavigationBar: React.FC = () => {
       <div className="max-w-7xl mx-auto flex justify-between items-center">
         <div>
           <Link to="/" className="font-poppins text-2xl font-bold text-finbaba-text">
-            {isMobile ? "FAS SABAR" : "Fin Baba"}
+            Fin Baba
           </Link>
         </div>
         
