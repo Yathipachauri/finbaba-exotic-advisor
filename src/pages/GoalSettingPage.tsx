@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
+import { Card, CardContent } from '@/components/ui/card';
+import PrivacyPopup from '../components/PrivacyPopup';
 import { isUserSignedUp, getUserData } from '../services/localStorageService';
 
 type GoalQuestion = {
@@ -205,6 +205,7 @@ const GoalSettingPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-finbaba-bg">
       <NavigationBar />
+      <PrivacyPopup formName="goal-setting" />
       
       <div className="max-w-2xl mx-auto px-4 py-12">
         <h1 className="text-3xl font-cormorant font-bold text-finbaba-text mb-8 text-center">
@@ -311,7 +312,7 @@ const GoalSettingPage: React.FC = () => {
               
               <div className="mb-8">
                 <h3 className="text-xl font-medium text-finbaba-text mb-4 font-cormorant">
-                  📝 Your 5-Task Plan:
+                  �� Your 5-Task Plan:
                 </h3>
                 
                 <div className="space-y-3">

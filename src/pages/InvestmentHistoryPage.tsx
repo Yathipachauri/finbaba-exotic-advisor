@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
+import { Card, CardContent } from '@/components/ui/card';
+import PrivacyPopup from '../components/PrivacyPopup';
 import { saveInvestmentHistory, getInvestmentHistory, isUserSignedUp } from '../services/localStorageService';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell } from 'recharts';
 
@@ -182,6 +182,7 @@ const InvestmentHistoryPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-finbaba-bg">
       <NavigationBar />
+      <PrivacyPopup formName="investment-history" />
       
       <div className="max-w-4xl mx-auto px-4 py-12">
         <h1 className="text-3xl font-cormorant font-bold text-finbaba-text mb-8 text-center">

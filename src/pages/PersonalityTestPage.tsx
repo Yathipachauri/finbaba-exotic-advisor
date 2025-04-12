@@ -1,7 +1,7 @@
-
 import React, { useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
+import { Card, CardContent } from '@/components/ui/card';
+import PrivacyPopup from '../components/PrivacyPopup';
 import { savePersonalityResult, getPersonalityResult, isUserSignedUp } from '../services/localStorageService';
 
 type Question = {
@@ -189,7 +189,6 @@ const personalityTypes: Record<string, PersonalityType> = {
 };
 
 const getPersonalityType = (answers: Record<string, string>): PersonalityType => {
-  // Count occurrences of each personality type
   const counts: Record<string, number> = {
     'squirrel': 0,
     'ant': 0,
@@ -205,12 +204,10 @@ const getPersonalityType = (answers: Record<string, string>): PersonalityType =>
     }
   });
   
-  // Find the top two types
   const sorted = Object.entries(counts).sort((a, b) => b[1] - a[1]);
   const primaryType = sorted[0][0];
   const secondaryType = sorted[1][0];
   
-  // Check for combinations
   if (primaryType === 'squirrel' && secondaryType === 'owl' || 
       primaryType === 'owl' && secondaryType === 'squirrel') {
     return personalityTypes['squirrel_owl'];
@@ -232,7 +229,6 @@ const getPersonalityType = (answers: Record<string, string>): PersonalityType =>
     return personalityTypes['squirrel_dog'];
   }
   
-  // If no combination matches, return the primary type
   return personalityTypes[primaryType];
 };
 
@@ -244,13 +240,11 @@ const PersonalityTestPage: React.FC = () => {
   const [personalityResult, setPersonalityResult] = useState<PersonalityType | null>(null);
 
   useEffect(() => {
-    // Check if user is signed up
     if (!isUserSignedUp()) {
       navigate('/signup');
       return;
     }
     
-    // Check if test has already been taken
     const existingResult = getPersonalityResult();
     if (existingResult && existingResult.answers) {
       setAnswers(existingResult.answers);
@@ -271,7 +265,6 @@ const PersonalityTestPage: React.FC = () => {
     if (currentQuestion < personalityQuestions.length - 1) {
       setCurrentQuestion(prev => prev + 1);
     } else {
-      // Calculate personality type
       const newAnswers = {
         ...answers,
         [question.id]: value
@@ -280,7 +273,6 @@ const PersonalityTestPage: React.FC = () => {
       const type = getPersonalityType(newAnswers);
       setPersonalityResult(type);
       
-      // Save results
       savePersonalityResult({
         answers: newAnswers,
         type: type.type
@@ -318,6 +310,7 @@ const PersonalityTestPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-finbaba-bg">
       <NavigationBar />
+      <PrivacyPopup formName="personality-test" />
       
       <div className="max-w-3xl mx-auto px-4 py-12">
         <h1 className="text-3xl font-cormorant font-bold text-finbaba-text mb-8 text-center">

@@ -3,16 +3,14 @@ import React, { useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { saveUserData } from '../services/localStorageService';
 import NavigationBar from '../components/NavigationBar';
+import PrivacyPopup from '../components/PrivacyPopup';
 
 const SignupPage: React.FC = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     name: '',
     mobileNumber: '',
-    dob: '',
-    currentSalary: '',
-    currentSavings: '',
-    currentInvestment: ''
+    dob: ''
   });
   const [errors, setErrors] = useState<Record<string, string>>({});
 
@@ -46,24 +44,6 @@ const SignupPage: React.FC = () => {
       newErrors.dob = "Date of birth is required";
     }
     
-    if (!formData.currentSalary.trim()) {
-      newErrors.currentSalary = "Current salary is required";
-    } else if (isNaN(Number(formData.currentSalary)) || Number(formData.currentSalary) < 0) {
-      newErrors.currentSalary = "Please enter a valid amount";
-    }
-    
-    if (!formData.currentSavings.trim()) {
-      newErrors.currentSavings = "Current savings is required";
-    } else if (isNaN(Number(formData.currentSavings)) || Number(formData.currentSavings) < 0) {
-      newErrors.currentSavings = "Please enter a valid amount";
-    }
-    
-    if (!formData.currentInvestment.trim()) {
-      newErrors.currentInvestment = "Current investment is required";
-    } else if (isNaN(Number(formData.currentInvestment)) || Number(formData.currentInvestment) < 0) {
-      newErrors.currentInvestment = "Please enter a valid amount";
-    }
-    
     setErrors(newErrors);
     return Object.keys(newErrors).length === 0;
   };
@@ -77,9 +57,9 @@ const SignupPage: React.FC = () => {
         name: formData.name,
         mobileNumber: formData.mobileNumber,
         dob: formData.dob,
-        currentSalary: Number(formData.currentSalary),
-        currentSavings: Number(formData.currentSavings),
-        currentInvestment: Number(formData.currentInvestment),
+        currentSalary: 0,
+        currentSavings: 0,
+        currentInvestment: 0,
         isSignedUp: true
       });
       
@@ -91,6 +71,7 @@ const SignupPage: React.FC = () => {
   return (
     <div className="min-h-screen bg-finbaba-bg">
       <NavigationBar />
+      <PrivacyPopup formName="signup" />
       
       <div className="max-w-md mx-auto px-4 py-12">
         <h1 className="text-3xl font-cormorant font-bold text-finbaba-text mb-8 text-center">
@@ -126,7 +107,7 @@ const SignupPage: React.FC = () => {
               {errors.mobileNumber && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.mobileNumber}</p>}
             </div>
             
-            <div className="mb-4">
+            <div className="mb-6">
               <label htmlFor="dob" className="block text-finbaba-text mb-1 font-raleway">Date of Birth</label>
               <input
                 type="date"
@@ -137,48 +118,6 @@ const SignupPage: React.FC = () => {
                 className="w-full p-2 border border-finbaba-accent focus:outline-none focus:ring-1 focus:ring-finbaba-text"
               />
               {errors.dob && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.dob}</p>}
-            </div>
-            
-            <div className="mb-4">
-              <label htmlFor="currentSalary" className="block text-finbaba-text mb-1 font-raleway">Current Salary (approx.)</label>
-              <input
-                type="number"
-                id="currentSalary"
-                name="currentSalary"
-                value={formData.currentSalary}
-                onChange={handleChange}
-                placeholder="₹"
-                className="w-full p-2 border border-finbaba-accent focus:outline-none focus:ring-1 focus:ring-finbaba-text"
-              />
-              {errors.currentSalary && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.currentSalary}</p>}
-            </div>
-            
-            <div className="mb-4">
-              <label htmlFor="currentSavings" className="block text-finbaba-text mb-1 font-raleway">Current Savings (approx.)</label>
-              <input
-                type="number"
-                id="currentSavings"
-                name="currentSavings"
-                value={formData.currentSavings}
-                onChange={handleChange}
-                placeholder="₹"
-                className="w-full p-2 border border-finbaba-accent focus:outline-none focus:ring-1 focus:ring-finbaba-text"
-              />
-              {errors.currentSavings && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.currentSavings}</p>}
-            </div>
-            
-            <div className="mb-6">
-              <label htmlFor="currentInvestment" className="block text-finbaba-text mb-1 font-raleway">Current Investment (approx.)</label>
-              <input
-                type="number"
-                id="currentInvestment"
-                name="currentInvestment"
-                value={formData.currentInvestment}
-                onChange={handleChange}
-                placeholder="₹"
-                className="w-full p-2 border border-finbaba-accent focus:outline-none focus:ring-1 focus:ring-finbaba-text"
-              />
-              {errors.currentInvestment && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.currentInvestment}</p>}
             </div>
             
             <button

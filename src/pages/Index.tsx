@@ -4,6 +4,7 @@ import { useNavigate } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
 import FeatureCard from '../components/FeatureCard';
 import { isUserSignedUp, getUserData } from '../services/localStorageService';
+import { Shield } from 'lucide-react';
 
 const financialTips = [
   "The best time to start investing was yesterday. The second best time is today.",
@@ -37,10 +38,10 @@ const Index: React.FC = () => {
 
   const features = [
     {
-      title: "AI Financial Advisor",
-      description: "Get personalized financial advice based on your unique financial situation and goals.",
-      image: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?auto=format&fit=crop&q=80&w=500",
-      linkTo: "/ai-advisor"
+      title: "Investment Analysis",
+      description: "Analyze your past investments to discover patterns and improve your future investment decisions.",
+      image: "https://images.unsplash.com/photo-1611974789855-9c2a0a7236a3?auto=format&fit=crop&q=80&w=500",
+      linkTo: "/investment-history"
     },
     {
       title: "Personality Assessment",
@@ -114,6 +115,34 @@ const Index: React.FC = () => {
             >
               Try Now
             </a>
+          </div>
+        </div>
+      </section>
+      
+      {/* Why Us Section */}
+      <section className="py-16 px-4 bg-gray-100">
+        <div className="max-w-6xl mx-auto">
+          <h2 className="text-3xl font-cormorant font-bold text-finbaba-text mb-8 text-center">
+            Why Us?
+          </h2>
+          
+          <div className="flex flex-col md:flex-row items-center justify-center gap-8">
+            <div className="md:w-1/3 flex justify-center">
+              <div className="bg-white p-8 rounded-lg shadow-lg flex items-center justify-center">
+                <Shield size={120} className="text-finbaba-text" />
+              </div>
+            </div>
+            <div className="md:w-2/3">
+              <p className="text-lg font-raleway text-finbaba-text mb-4">
+                At Fin Baba, we take your privacy and data security seriously. Unlike other financial platforms, we don't sell your data to any third-party financial firms for processing.
+              </p>
+              <p className="text-lg font-raleway text-finbaba-text mb-4">
+                All your financial information remains secure and is analyzed locally, ensuring the highest level of privacy protection. We believe that your financial journey should be personal, private, and protected.
+              </p>
+              <p className="text-lg font-raleway text-finbaba-text">
+                With Fin Baba, you can trust that your data is solely used to provide you with personalized financial insights and recommendations, helping you achieve your financial goals with peace of mind.
+              </p>
+            </div>
           </div>
         </div>
       </section>
