@@ -49,10 +49,10 @@ const Index: React.FC = () => {
       linkTo: "/personality-test"
     },
     {
-      title: "Investment History Analysis",
-      description: "Track and analyze your investment performance over time to optimize your strategy.",
-      image: "https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=500",
-      linkTo: "/investment-history"
+      title: "Set Your Goal",
+      description: "Define your financial goals and get a customized plan to achieve them.",
+      image: "https://images.unsplash.com/photo-1589666564459-93cdd3ab856a?auto=format&fit=crop&q=80&w=500",
+      linkTo: "/goal-setting"
     }
   ];
 
@@ -60,13 +60,16 @@ const Index: React.FC = () => {
     <div className="min-h-screen bg-finbaba-bg flex flex-col">
       <NavigationBar />
       
-      {/* Hero Section with Gradient */}
-      <section className="bg-gradient-to-b from-finbaba-bg via-finbaba-accent to-finbaba-text py-24 px-4 text-center">
+      {/* Hero Section with Dark Green Background */}
+      <section 
+        className="bg-finbaba-text py-24 px-4 text-center bg-cover bg-center"
+        style={{ backgroundImage: 'linear-gradient(rgba(52, 78, 65, 0.85), rgba(52, 78, 65, 0.95)), url(https://images.unsplash.com/photo-1460925895917-afdab827c52f?auto=format&fit=crop&q=80&w=1500)' }}
+      >
         <div className="max-w-4xl mx-auto">
-          <h1 className="text-4xl md:text-5xl lg:text-6xl font-playfair font-bold text-finbaba-bg mb-4">
+          <h1 className="text-4xl md:text-5xl lg:text-6xl font-cormorant font-bold text-finbaba-bg mb-4 text-shadow-glow">
             Welcome {username && <span>{username}</span>} to Fin Baba
           </h1>
-          <p className="text-xl md:text-2xl text-finbaba-bg">
+          <p className="text-xl md:text-2xl text-finbaba-bg font-raleway text-shadow-sm">
             Your Personalized, AI powered Financial Advisor
           </p>
         </div>
@@ -75,7 +78,7 @@ const Index: React.FC = () => {
       {/* Features Section */}
       <section className="py-16 px-4 bg-transparent">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-playfair font-bold text-finbaba-text mb-12 text-center">
+          <h2 className="text-3xl font-cormorant font-bold text-finbaba-text mb-12 text-center">
             Our Flagship Features
           </h2>
           
@@ -93,15 +96,37 @@ const Index: React.FC = () => {
         </div>
       </section>
       
+      {/* AI Advisor Feature Section */}
+      <section className="py-16 px-4 bg-finbaba-text text-finbaba-bg">
+        <div className="max-w-6xl mx-auto flex flex-col md:flex-row items-center">
+          <div className="md:w-2/3 mb-8 md:mb-0 md:pr-8">
+            <h2 className="text-3xl font-cormorant font-bold mb-4">
+              Our AI Financial Advisor
+            </h2>
+            <p className="text-lg font-raleway mb-6">
+              Our state-of-the-art AI financial advisor analyzes your financial situation and goals to provide personalized recommendations tailored to your needs. Whether you're saving for retirement, planning a major purchase, or just want to optimize your investments, our AI advisor has you covered.
+            </p>
+          </div>
+          <div className="md:w-1/3 flex justify-center">
+            <a 
+              href="/ai-advisor" 
+              className="bg-finbaba-accent text-finbaba-text py-4 px-8 rounded-full text-lg font-medium hover:bg-opacity-90 transition font-raleway"
+            >
+              Try Now
+            </a>
+          </div>
+        </div>
+      </section>
+      
       {/* Daily Tip Section */}
       <section className="py-16 px-4 bg-finbaba-bg">
         <div className="max-w-4xl mx-auto">
-          <h2 className="text-3xl font-playfair font-bold text-finbaba-text mb-8 text-center">
+          <h2 className="text-3xl font-cormorant font-bold text-finbaba-text mb-8 text-center">
             Daily Financial Wisdom
           </h2>
           
           <div className="p-8 bg-white shadow-lg">
-            <blockquote className="text-xl italic text-finbaba-text text-center">
+            <blockquote className="text-xl italic text-finbaba-text text-center font-raleway">
               "{dailyTip}"
             </blockquote>
           </div>
@@ -111,8 +136,8 @@ const Index: React.FC = () => {
       {/* Footer */}
       <footer className="mt-auto bg-gray-200 py-6 px-4">
         <div className="max-w-6xl mx-auto text-center">
-          <p className="text-finbaba-text">
-            Created by Prakhar, Yathi and Prassanna
+          <p className="text-finbaba-text font-raleway">
+            Created by Prakhar, Yathi and Prasanna
           </p>
         </div>
       </footer>

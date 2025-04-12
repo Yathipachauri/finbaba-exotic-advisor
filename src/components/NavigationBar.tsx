@@ -19,28 +19,31 @@ const NavigationBar: React.FC = () => {
         <div className="flex gap-6 items-center">
           {isLoggedIn && (
             <>
-              <Link to="/personality-test" className="text-finbaba-text hover:text-finbaba-accent transition">
-                Personality Test
+              <Link to="/personality-test" className="text-finbaba-text hover:text-finbaba-accent transition font-raleway">
+                Personality Assessment
               </Link>
-              <Link to="/investment-history" className="text-finbaba-text hover:text-finbaba-accent transition">
+              <Link to="/investment-history" className="text-finbaba-text hover:text-finbaba-accent transition font-raleway">
                 Investment History
+              </Link>
+              <Link to="/goal-setting" className="text-finbaba-text hover:text-finbaba-accent transition font-raleway">
+                Goal Setting
               </Link>
             </>
           )}
-          <Link to="/privacy-policy" className="text-finbaba-text hover:text-finbaba-accent transition">
+          <Link to="/privacy-policy" className="text-finbaba-text hover:text-finbaba-accent transition font-raleway">
             Privacy Policy
           </Link>
-          <Link to="/ai-advisor" className="text-finbaba-text hover:text-finbaba-accent transition font-medium">
+          <Link to="/ai-advisor" className="text-finbaba-text hover:text-finbaba-accent transition font-medium font-raleway">
             AI Financial Advisor
           </Link>
           {isLoggedIn ? (
-            <span className="text-finbaba-text">
+            <span className="text-finbaba-text font-raleway">
               Hi, {userData.name.split(' ')[0]}
             </span>
           ) : (
             <Link 
               to="/signup" 
-              className="px-4 py-2 bg-finbaba-text text-finbaba-bg font-medium hover:bg-opacity-90 transition"
+              className="px-4 py-2 bg-finbaba-text text-finbaba-bg font-medium hover:bg-opacity-90 transition font-raleway"
             >
               Sign Up
             </Link>

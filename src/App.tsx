@@ -8,6 +8,7 @@ import Index from "./pages/Index";
 import SignupPage from "./pages/SignupPage";
 import PersonalityTestPage from "./pages/PersonalityTestPage";
 import InvestmentHistoryPage from "./pages/InvestmentHistoryPage";
+import GoalSettingPage from "./pages/GoalSettingPage";
 import PrivacyPolicyPage from "./pages/PrivacyPolicyPage";
 import AIAdvisorPage from "./pages/AIAdvisorPage";
 import NotFound from "./pages/NotFound";
@@ -25,6 +26,7 @@ const App = () => (
           <Route path="/signup" element={<SignupPage />} />
           <Route path="/personality-test" element={<PersonalityTestPage />} />
           <Route path="/investment-history" element={<InvestmentHistoryPage />} />
+          <Route path="/goal-setting" element={<GoalSettingPage />} />
           <Route path="/privacy-policy" element={<PrivacyPolicyPage />} />
           <Route path="/ai-advisor" element={<AIAdvisorPage />} />
           <Route path="*" element={<NotFound />} />

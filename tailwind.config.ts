@@ -22,6 +22,8 @@ export default {
 			fontFamily: {
 				'playfair': ['"Playfair Display"', 'serif'],
 				'poppins': ['Poppins', 'sans-serif'],
+				'cormorant': ['"Cormorant Infant"', 'serif'],
+				'raleway': ['Raleway', 'sans-serif'],
 			},
 			colors: {
 				'finbaba': {

@@ -3,6 +3,7 @@
 export interface UserData {
   name: string;
   mobileNumber: string;
+  dob?: string;
   currentSalary: number;
   currentSavings: number;
   currentInvestment: number;
@@ -36,6 +37,7 @@ const defaultUser: UserData = {
 const USER_DATA_KEY = "finbaba_user_data";
 const PERSONALITY_DATA_KEY = "finbaba_personality_data";
 const INVESTMENT_HISTORY_KEY = "finbaba_investment_history";
+const GOAL_SETTING_KEY = "finbaba_goal_setting";
 
 // Get user data from local storage
 export const getUserData = (): UserData => {
@@ -86,4 +88,31 @@ export const getInvestmentHistory = (): InvestmentHistory[] => {
 // Save investment history
 export const saveInvestmentHistory = (history: InvestmentHistory[]): void => {
   localStorage.setItem(INVESTMENT_HISTORY_KEY, JSON.stringify(history));
+};
+
+// Goal setting interface
+export interface GoalSetting {
+  goal: string;
+  goalType: string;
+  goalAmount: number;
+  timeFrame: number;
+  currentSavings: number;
+  monthlySalary: number;
+  monthlyTarget: number;
+  tasks: string[];
+  suggestion: string;
+}
+
+// Get goal setting data
+export const getGoalSetting = (): GoalSetting | null => {
+  const storedData = localStorage.getItem(GOAL_SETTING_KEY);
+  if (storedData) {
+    return JSON.parse(storedData);
+  }
+  return null;
+};
+
+// Save goal setting data
+export const saveGoalSetting = (goalData: GoalSetting): void => {
+  localStorage.setItem(GOAL_SETTING_KEY, JSON.stringify(goalData));
 };

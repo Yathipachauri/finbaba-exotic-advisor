@@ -9,6 +9,7 @@ const SignupPage: React.FC = () => {
   const [formData, setFormData] = useState({
     name: '',
     mobileNumber: '',
+    dob: '',
     currentSalary: '',
     currentSavings: '',
     currentInvestment: ''
@@ -41,6 +42,10 @@ const SignupPage: React.FC = () => {
       newErrors.mobileNumber = "Mobile number must be 10 digits";
     }
     
+    if (!formData.dob.trim()) {
+      newErrors.dob = "Date of birth is required";
+    }
+    
     if (!formData.currentSalary.trim()) {
       newErrors.currentSalary = "Current salary is required";
     } else if (isNaN(Number(formData.currentSalary)) || Number(formData.currentSalary) < 0) {
@@ -71,6 +76,7 @@ const SignupPage: React.FC = () => {
       saveUserData({
         name: formData.name,
         mobileNumber: formData.mobileNumber,
+        dob: formData.dob,
         currentSalary: Number(formData.currentSalary),
         currentSavings: Number(formData.currentSavings),
         currentInvestment: Number(formData.currentInvestment),
@@ -87,14 +93,14 @@ const SignupPage: React.FC = () => {
       <NavigationBar />
       
       <div className="max-w-md mx-auto px-4 py-12">
-        <h1 className="text-3xl font-playfair font-bold text-finbaba-text mb-8 text-center">
+        <h1 className="text-3xl font-cormorant font-bold text-finbaba-text mb-8 text-center">
           Join Fin Baba
         </h1>
         
         <div className="bg-white p-8 shadow-lg">
           <form onSubmit={handleSubmit}>
             <div className="mb-4">
-              <label htmlFor="name" className="block text-finbaba-text mb-1">Full Name</label>
+              <label htmlFor="name" className="block text-finbaba-text mb-1 font-raleway">Full Name</label>
               <input
                 type="text"
                 id="name"
@@ -103,11 +109,11 @@ const SignupPage: React.FC = () => {
                 onChange={handleChange}
                 className="w-full p-2 border border-finbaba-accent focus:outline-none focus:ring-1 focus:ring-finbaba-text"
               />
-              {errors.name && <p className="text-red-600 text-sm mt-1">{errors.name}</p>}
+              {errors.name && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.name}</p>}
             </div>
             
             <div className="mb-4">
-              <label htmlFor="mobileNumber" className="block text-finbaba-text mb-1">Mobile Number</label>
+              <label htmlFor="mobileNumber" className="block text-finbaba-text mb-1 font-raleway">Mobile Number</label>
               <input
                 type="tel"
                 id="mobileNumber"
@@ -117,11 +123,24 @@ const SignupPage: React.FC = () => {
                 placeholder="10 digit number"
                 className="w-full p-2 border border-finbaba-accent focus:outline-none focus:ring-1 focus:ring-finbaba-text"
               />
-              {errors.mobileNumber && <p className="text-red-600 text-sm mt-1">{errors.mobileNumber}</p>}
+              {errors.mobileNumber && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.mobileNumber}</p>}
             </div>
             
             <div className="mb-4">
-              <label htmlFor="currentSalary" className="block text-finbaba-text mb-1">Current Salary (approx.)</label>
+              <label htmlFor="dob" className="block text-finbaba-text mb-1 font-raleway">Date of Birth</label>
+              <input
+                type="date"
+                id="dob"
+                name="dob"
+                value={formData.dob}
+                onChange={handleChange}
+                className="w-full p-2 border border-finbaba-accent focus:outline-none focus:ring-1 focus:ring-finbaba-text"
+              />
+              {errors.dob && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.dob}</p>}
+            </div>
+            
+            <div className="mb-4">
+              <label htmlFor="currentSalary" className="block text-finbaba-text mb-1 font-raleway">Current Salary (approx.)</label>
               <input
                 type="number"
                 id="currentSalary"
@@ -131,11 +150,11 @@ const SignupPage: React.FC = () => {
                 placeholder="₹"
                 className="w-full p-2 border border-finbaba-accent focus:outline-none focus:ring-1 focus:ring-finbaba-text"
               />
-              {errors.currentSalary && <p className="text-red-600 text-sm mt-1">{errors.currentSalary}</p>}
+              {errors.currentSalary && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.currentSalary}</p>}
             </div>
             
             <div className="mb-4">
-              <label htmlFor="currentSavings" className="block text-finbaba-text mb-1">Current Savings (approx.)</label>
+              <label htmlFor="currentSavings" className="block text-finbaba-text mb-1 font-raleway">Current Savings (approx.)</label>
               <input
                 type="number"
                 id="currentSavings"
@@ -145,11 +164,11 @@ const SignupPage: React.FC = () => {
                 placeholder="₹"
                 className="w-full p-2 border border-finbaba-accent focus:outline-none focus:ring-1 focus:ring-finbaba-text"
               />
-              {errors.currentSavings && <p className="text-red-600 text-sm mt-1">{errors.currentSavings}</p>}
+              {errors.currentSavings && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.currentSavings}</p>}
             </div>
             
             <div className="mb-6">
-              <label htmlFor="currentInvestment" className="block text-finbaba-text mb-1">Current Investment (approx.)</label>
+              <label htmlFor="currentInvestment" className="block text-finbaba-text mb-1 font-raleway">Current Investment (approx.)</label>
               <input
                 type="number"
                 id="currentInvestment"
@@ -159,12 +178,12 @@ const SignupPage: React.FC = () => {
                 placeholder="₹"
                 className="w-full p-2 border border-finbaba-accent focus:outline-none focus:ring-1 focus:ring-finbaba-text"
               />
-              {errors.currentInvestment && <p className="text-red-600 text-sm mt-1">{errors.currentInvestment}</p>}
+              {errors.currentInvestment && <p className="text-red-600 text-sm mt-1 font-raleway">{errors.currentInvestment}</p>}
             </div>
             
             <button
               type="submit"
-              className="w-full bg-finbaba-text text-finbaba-bg py-3 px-4 hover:bg-opacity-90 transition font-medium"
+              className="w-full bg-finbaba-text text-finbaba-bg py-3 px-4 hover:bg-opacity-90 transition font-medium font-raleway"
             >
               Sign Up
             </button>
