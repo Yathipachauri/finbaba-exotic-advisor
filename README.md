@@ -1,8 +1,42 @@
-# Welcome to your Lovable project
 
-## Project info
 
-**URL**: https://lovable.dev/projects/5d3e119c-76f3-4660-8f6f-ea97f0d092c1
+## Fin Baba:
+A youth-friendly, personalized finance simulation app that lets users explore “what-if” scenarios, visualize alternate financial futures, and build smarter money habits — all based on their unique financial personality.
+## 🚀 Project Overview:
+"Financial Time Machine" is your personal finance lab.
+
+It helps users:
+
+Visualize how career changes, investments, or big purchases affect their future.
+
+Understand their financial personality (like Chill Panda or Growth Shark 🐼🦈).
+
+Analyze the impact of past decisions using fun, insightful graphs.
+
+Get AI-powered advice to optimize their financial goals.
+
+We make boring money talk fun, interactive, and action-driven for young minds.
+✨ Key Features
+🔮 What-If Simulations:
+Try alternate realities of your life — new job, buying a car, investing, etc.
+
+🧠 AI Financial Advisor:
+Tailored money advice based on your inputs and personality.
+
+📊 Backward Impact Analysis:
+Visualize how your past investments helped or hurt you.
+
+🐾 Behavior-Based Personality Engine:
+Are you a Dreamer Bird or a Hustler Bee? Your habits define you.
+
+📈 Graphs & Visualizations:
+See timelines, decision impact maps, and gain/loss trends.
+
+🔐 100% Privacy First:
+Your data stays with you. We never share/sell it.
+
+**Github URL**:https://github.com/Yathipachauri/finbaba-exotic-advisor 
+**Deployed URL**:https://preview--finbaba-exotic-advisor.lovable.app/
 
 ## How can I edit this code?
 
@@ -59,15 +93,8 @@ This project is built with:
 - React
 - shadcn-ui
 - Tailwind CSS
+##Contributors:
+ [PRASANNA-THE-PRASANN1](https://github.com/PRASANNA-THE-PRASANN1)
+ [Yathipachauri](https://github.com/Yathipachauri)
 
-## How can I deploy this project?
 
-Simply open [Lovable](https://lovable.dev/projects/5d3e119c-76f3-4660-8f6f-ea97f0d092c1) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes it is!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/tips-tricks/custom-domain#step-by-step-guide)
