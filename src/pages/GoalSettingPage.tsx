@@ -1,4 +1,6 @@
+
 import React, { useState, useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import NavigationBar from '../components/NavigationBar';
 import { Card, CardContent } from '@/components/ui/card';
 import PrivacyPopup from '../components/PrivacyPopup';
