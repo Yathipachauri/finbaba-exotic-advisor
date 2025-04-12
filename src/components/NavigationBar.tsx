@@ -23,13 +23,23 @@ const NavigationBar: React.FC = () => {
         
         {isMobile ? (
           <>
-            <button 
-              onClick={toggleMenu}
-              className="text-finbaba-text p-1"
-              aria-label="Toggle menu"
-            >
-              {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
-            </button>
+            <div className="flex items-center gap-2">
+              {!isLoggedIn && (
+                <Link 
+                  to="/signup" 
+                  className="px-3 py-1 bg-finbaba-text text-finbaba-bg text-sm font-medium hover:bg-opacity-90 transition font-raleway"
+                >
+                  Sign Up
+                </Link>
+              )}
+              <button 
+                onClick={toggleMenu}
+                className="text-finbaba-text p-1"
+                aria-label="Toggle menu"
+              >
+                {isMenuOpen ? <X size={24} /> : <Menu size={24} />}
+              </button>
+            </div>
             
             {isMenuOpen && (
               <div className="absolute top-full left-0 right-0 bg-finbaba-bg shadow-lg z-50">
@@ -68,23 +78,15 @@ const NavigationBar: React.FC = () => {
                   </Link>
                   <Link 
                     to="/ai-advisor" 
-                    className="py-2 text-finbaba-text hover:text-finbaba-accent transition font-medium font-raleway"
+                    className="py-2 text-finbaba-text hover:text-finbaba-accent transition font-raleway"
                     onClick={toggleMenu}
                   >
                     AI Financial Advisor
                   </Link>
-                  {isLoggedIn ? (
+                  {isLoggedIn && (
                     <span className="py-2 text-finbaba-text font-raleway">
                       Hi, {userData.name.split(' ')[0]}
                     </span>
-                  ) : (
-                    <Link 
-                      to="/signup" 
-                      className="py-2 px-4 mt-2 bg-finbaba-text text-finbaba-bg font-medium hover:bg-opacity-90 transition font-raleway inline-block"
-                      onClick={toggleMenu}
-                    >
-                      Sign Up
-                    </Link>
                   )}
                 </div>
               </div>
@@ -108,7 +110,7 @@ const NavigationBar: React.FC = () => {
             <Link to="/privacy-policy" className="text-finbaba-text hover:text-finbaba-accent transition font-raleway">
               Privacy Policy
             </Link>
-            <Link to="/ai-advisor" className="text-finbaba-text hover:text-finbaba-accent transition font-medium font-raleway">
+            <Link to="/ai-advisor" className="text-finbaba-text hover:text-finbaba-accent transition font-raleway">
               AI Financial Advisor
             </Link>
             {isLoggedIn ? (
